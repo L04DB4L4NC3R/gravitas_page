@@ -25,8 +25,10 @@ let func = async ()=>{
 
 
 
-        let s =await driver.getPageSource()
-        console.log(s)
+        await driver.get(process.env.EVENT_PARTICIPANTS_URL);
+
+        arr = await driver.findElements({name:"frmSubmit"});
+        await arr[1].click();
 
         await driver.wait(until.titleContains("google"))
 
