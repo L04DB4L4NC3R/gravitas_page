@@ -6,6 +6,7 @@ const {
     TimeUnit,
     until
 } = require("selenium-webdriver");
+const attendees = require("./helpers/readxl");
 
 
 let func = async ()=>{
@@ -28,7 +29,19 @@ let func = async ()=>{
         arr = await driver.findElements({name:"frmSubmit"});
         await arr[1].click();
 
+        require('system-sleep')(10000);
+        // build an array of participants
+        arr=[]
+        let data = await driver.findElements(By.css("td"));
+        for(let i in data)
+            if((i-9)%7 === 0)
+                arr.push(await data[i].getAttribute("innerHTML"));
+        console.log(arr)
 
+
+        // build a names array from csv
+        let attended = await attendees("./helpers/devtalks.csv");
+        //console.log(attended)
 
 
         // voluntary wait
