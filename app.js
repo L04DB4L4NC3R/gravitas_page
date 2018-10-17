@@ -1,7 +1,10 @@
 require("dotenv").config()
 const {
     Builder,
-    By
+    By,
+    Key,
+    TimeUnit,
+    until
 } = require("selenium-webdriver");
 
 
@@ -17,11 +20,21 @@ let func = async ()=>{
         arr = arr.split('>')[1].split("<")[0];
 
         await driver.findElement({id:"captchacode"}).sendKeys(arr);
-        //await driver.findElements(By.tagName('a'))[0].click();
-        
+
+        await driver.findElement({name:"frmSubmit"}).click();
 
 
-        await driver.findElement({href:"coord_event_participants.asp"}).click()
+
+        let s =await driver.getPageSource()
+        console.log(s)
+
+        await driver.wait(until.titleContains("google"))
+
+        // await arr[0].click();
+
+        // arr = await driver.findElements(By.tagName("button"));
+        // await arr[1].click()
+
     } finally {
         await driver.quit();
     }
