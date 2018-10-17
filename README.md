@@ -10,7 +10,13 @@ An automation script written using selenium js
 <br />
 
 
-* Download the latest release of [geckodriver]              (https://github.com/mozilla/geckodriver/releases/download/v0.23.0/geckodriver-v0.23.0-arm7hf.tar.gz)
+* Download the latest release of firefox and geckodriver
+
+<br />
+
+https://github.com/mozilla/geckodriver/releases/download/v0.23.0/geckodriver-v0.23.0-arm7hf.tar.gz
+
+<br />
 
 * clone the project and cd into it
 
@@ -36,4 +42,12 @@ EVENT_PARTICIPANTS_URL=http://info.vit.ac.in/gravitas18/gravitas/coord_event_par
 ```bash
 $ npm i && npm start
 ```
+
+<br />
+
+### Note
+
+<br />
+
+Only works on firefox
 
